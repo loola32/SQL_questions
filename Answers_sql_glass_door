@@ -1,0 +1,31 @@
+1)find top 5 sales products by brand having promotions
+
+
+
+select S. product_id,
+  P.brand_name,
+  sum(store_sales) sum_of_sales
+from sales S join products P
+  on S.product_id=P.product_id
+where promotion_id is not null)T
+group by product_id, brand_name
+order by sum_of_sales desc
+Limit 5
+
+
+
+2) what %age of sales happened on first and last day of the promotion
+
+
+select
+promotion_id,
+sum(case when transaction_date=first_promo_date then 1 else 0 end)/count(*) as sales_pct_first_promo_day,
+sum(case when transaction_date=last_promo_date then 1 else 0 end)/count(*) as sales_pct_last_promo_day
+from
+(
+select *,
+min(transaction_date) over (partition by promotion_id order by promotion_id) first_promo_date,
+max(transaction_date) over (partition by promotion_id order by promotion_id) last_promo_date
+from sales
+where promotion_id is not null)T
+group by promotion_id
