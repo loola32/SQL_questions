@@ -29,3 +29,11 @@ max(transaction_date) over (partition by promotion_id order by promotion_id) las
 from sales
 where promotion_id is not null)T
 group by promotion_id
+
+
+--not mine
+
+select
+sum(case when transaction_date = (select min(transaction_date) from sales) then 1 else 0)/count(*) as first_day_sales,
+sum(case when transaction_date = (select max(transaction_date) from sales) then 1 else 0)/count(*) as last_day_sales
+from sales
