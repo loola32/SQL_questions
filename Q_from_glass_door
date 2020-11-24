@@ -62,3 +62,108 @@ Question 1:
 
 
 
+Interview Questions
+
+want you to write me a simple spell checking engine.
+
+The query language is a very simple regular expression-like language, with one special character: . (the dot character), which means EXACTLY ONE character (it can be any character). So, for example, 'c.t' would match 'cat' as the dot matches any character. There may be any number of dot characters in the query (or none).
+
+Your spell checker will have to be optimized for speed, so you will have to write it in the required way. There would be a one-time setUp() function that does any pre-processing you require, and then there will be an isMatch() function that should run as fast as possible, utilizing that pre-processing.
+
+There are some examples below, feel free to ask for clarification.
+
+Word List:
+
+[cat, bat, rat, drat, dart, drab]
+
+Queries:
+
+cat -> true
+c.t -> true
+.at -> true
+..t -> true
+d..t -> true
+dr.. -> true
+... -> true
+.... -> true
+
+..... -> false
+h.t -> false
+c. -> false
+*/
+
+// write a function
+// Struct setup(List<String> list_of_words)
+// Do whatever processing you want here
+// with reasonable efficiency.
+// Return whatever data structures you want.
+// This function will only run once
+
+// write a function
+// bool isMatch(Struct struct, String query)
+// Returns whether the query is a match in the
+// dictionary (True/False)
+// Should be optimized for speed  
+18 Answers
+Show Less
+Given an array of integers, we would like to determine whether the array is monotonic (non-decreasing/non-increasing) or not.
+Examples:
+// 1 2 5 5 8
+// true
+// 9 4 4 2 2
+// true
+// 1 4 6 3
+// false
+
+//1 1 1 1 1 1
+// true  
+21 Answers
+Calculate the average word length.
+For the given set of words return the average word length.  
+9 Answers
+products sales
++------------------+---------+ +------------------+---------+
+| product_id | int |------->| product_id | int |
+| product_class_id | int | +---->| store_id | int |
+| brand_name | varchar | | +->| customer_id | int |
+| product_name | varchar | | | | promotion_id | int |
+| price | int | | | | store_sales | decimal |
++------------------+---------+ | | | store_cost | decimal |
+                                | | | units_sold | decimal |
+                                | | | transaction_date | date |
+                                | | +------------------+---------+
+                                | |
+stores | | customers
++-------------------+---------+ | | +---------------------+---------+
+| store_id | int |-+ +--| customer_id | int |
+| type | varchar | | first_name | varchar |
+| name | varchar | | last_name | varchar |
+| state | varchar | | state | varchar |
+| first_opened_date | datetime| | birthdate | date |
+| last_remodel_date | datetime| | education | varchar |
+| area_sqft | int | | gender | varchar |
++-------------------+---------+ | date_account_opened | date |
+                                      +---------------------+---------+
+
+Question 1:
+What brands have an average price above $3 and contain at least 2 different products?
+
+Question 2:
+  To improve sales, the marketing department runs various types of promotions.
+  The marketing manager would like to analyze the effectiveness of these promotion campaigns.
+  In particular, what percent of our sales transactions had a valid promotion applied?
+
+Question 3:
+  We want to run a new promotion for our most successful category of products
+  (we call these categories “product classes”).
+  Can you find out what are the top 3 selling product classes by total sales?
+
+Question 4:
+    We are considering running a promo across brands. We want to target
+    customers who have bought products from two specific brands.
+    Can you find out which customers have bought products from both the
+    “Fort West" and the "Golden" brands?  
+13 Answers
+
+
+
