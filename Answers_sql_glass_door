@@ -14,6 +14,19 @@ Limit 5
 
 2) what %age of products have both non fat and trans fat.
 
+with tempA as
+(
+select
+ is_low_fat_flg,
+ is_recyclable_flg,
+1.0*(count(product_id) over()) as total_num_of_pr
+from products
+)
+
+select
+cast(100*(sum(case when (is_low_fat_flg=1 and is_recyclable_flg=1) then 1 else 0 end)/max(total_num_of_pr)) as decimal(10,2)) as 'product_%_that_are_both'
+from tempA
+
 
 
 3) what %age of sales happened on first and last day of the promotion
