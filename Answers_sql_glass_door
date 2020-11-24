@@ -39,6 +39,7 @@ group by promotion_id,transaction_date,first_promo_date,last_promo_date
 
 --2nd option using CTE
 
+
 with T as
 (
 select
@@ -52,11 +53,10 @@ where promotion_id is not null
 )
 select
 promotion_id,
-sum(case when transaction_date=first_promo_date then 1 else 0 end)/max(num_of_sales) as 'sales_%_first_day_promo',
-sum(case when transaction_date=last_promo_date then 1 else 0 end)/max(num_of_sales) as 'sales_%_last_day_promo'
+cast(100*(sum(case when transaction_date=first_promo_date then 1 else 0 end)/max(num_of_sales)) as decimal(10,2)) as 'sales_%_first_day_promo',
+cast(100*(sum(case when transaction_date=last_promo_date then 1 else 0 end)/max(num_of_sales))as decimal(10,2)) as 'sales_%_last_day_promo'
 from T
 group by promotion_id
-
 
 --not mine
 
