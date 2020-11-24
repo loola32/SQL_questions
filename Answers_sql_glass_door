@@ -17,7 +17,7 @@ Limit 5
 
 
 3) what %age of sales happened on first and last day of the promotion
-
+ --first option:
 
 select
 promotion_id,
@@ -36,6 +36,26 @@ max(transaction_date) over (partition by promotion_id order by promotion_id) las
 from sales
 where promotion_id is not null)T
 group by promotion_id,transaction_date,first_promo_date,last_promo_date
+
+--2nd option using CTE
+
+with T as
+(
+select
+transaction_date,
+promotion_id,
+min(transaction_date) over (partition by promotion_id order by promotion_id) as first_promo_date,
+max(transaction_date) over (partition by promotion_id order by promotion_id) as last_promo_date,
+1.0*(count(product_id) over (partition by promotion_id order by promotion_id)) as num_of_sales
+from sales 
+where promotion_id is not null
+)
+select
+promotion_id,
+sum(case when transaction_date=first_promo_date then 1 else 0 end)/max(num_of_sales) as 'sales_%_first_day_promo',
+sum(case when transaction_date=last_promo_date then 1 else 0 end)/max(num_of_sales) as 'sales_%_last_day_promo'
+from T
+group by promotion_id
 
 
 --not mine
