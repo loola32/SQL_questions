@@ -12,9 +12,11 @@ group by product_id, brand_name
 order by sum_of_sales desc
 Limit 5
 
+2) what %age of products have both non fat and trans fat.
 
 
-2) what %age of sales happened on first and last day of the promotion
+
+3) what %age of sales happened on first and last day of the promotion
 
 
 select
