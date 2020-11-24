@@ -70,14 +70,14 @@ insert into customers (customer_id, first_name , last_name, state, birthdate,edu
 
 
 
-insert into sales (product_id, store_id ,customer_ind,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (11,1,111,156,333.5,200.5,5,'2020-11-18');
-insert into sales (product_id, store_id ,customer_ind,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (12,1,112,157,233.5,100.5,10,'2020-11-19');
-insert into sales (product_id, store_id ,customer_ind,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (13,2,114,159,433.5,123.5,3,'2020-11-17');
-insert into sales (product_id, store_id ,customer_ind,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (15,3,115,159,245.5,182.5,5,'2020-11-20');
-insert into sales (product_id, store_id ,customer_ind,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (18,4,114,148,287.5,148.3,3,'2020-11-21');
-insert into sales (product_id, store_id ,customer_ind,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (14,3,113,156,146.7,58.5,8,'2020-11-22');
-insert into sales (product_id, store_id ,customer_ind,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (11,1,111,156,333.5,200.5,8,'2020-11-23');
-insert into sales (product_id, store_id ,customer_ind,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (17,1,111,null,100,100,4,'2020-11-17');
-insert into sales (product_id, store_id ,customer_ind,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (16,3,116,null,70,70,3,'2020-11-17');
+insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (11,1,111,156,333.5,200.5,5,'2020-11-18');
+insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (12,1,112,157,233.5,100.5,10,'2020-11-19');
+insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (13,2,114,159,433.5,123.5,3,'2020-11-17');
+insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (15,3,115,159,245.5,182.5,5,'2020-11-20');
+insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (18,4,114,148,287.5,148.3,3,'2020-11-21');
+insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (14,3,113,156,146.7,58.5,8,'2020-11-22');
+insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (11,1,111,156,333.5,200.5,8,'2020-11-23');
+insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (17,1,111,null,100,100,4,'2020-11-17');
+insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (16,3,116,null,70,70,3,'2020-11-17');
 
 
