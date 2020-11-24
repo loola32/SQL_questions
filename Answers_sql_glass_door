@@ -19,16 +19,21 @@ Limit 5
 
 select
 promotion_id,
-sum(case when transaction_date=first_promo_date then 1 else 0 end)/count(*) as sales_pct_first_promo_day,
-sum(case when transaction_date=last_promo_date then 1 else 0 end)/count(*) as sales_pct_last_promo_day
+max(num_of_sales) as num_of_sales,
+transaction_date,
+first_promo_date,
+last_promo_date,
+cast (100*(sum(case when transaction_date=first_promo_date then 1 else 0 end)/max(num_of_sales)) as decimal(10,2)) as sales_pct_first_promo_day,
+cast(100*(sum(case when transaction_date=last_promo_date then 1 else 0 end)/max(num_of_sales)) as decimal(10,2)) as sales_pct_last_promo_day
 from
 (
 select *,
 min(transaction_date) over (partition by promotion_id order by promotion_id) first_promo_date,
-max(transaction_date) over (partition by promotion_id order by promotion_id) last_promo_date
+max(transaction_date) over (partition by promotion_id order by promotion_id) last_promo_date,
+1.0*(count(product_id) over (partition by promotion_id order by promotion_id)) num_of_sales
 from sales
 where promotion_id is not null)T
-group by promotion_id
+group by promotion_id,transaction_date,first_promo_date,last_promo_date
 
 
 --not mine
