@@ -58,6 +58,25 @@ cast(100*(sum(case when transaction_date=last_promo_date then 1 else 0 end)/max(
 from T
 group by promotion_id
 
+--2nd a option CTE - when there is no need to differentiate between different promotions
+with T as
+(
+select
+transaction_date,
+promotion_id,
+min(transaction_date) over () as first_promo_date,
+max(transaction_date) over () as last_promo_date,
+1.0*(count(product_id) over ()) as num_of_sales
+from sales 
+where promotion_id is not null 
+)
+select
+--promotion_id,
+cast(100*(sum(case when transaction_date=first_promo_date then 1 else 0 end)/max(num_of_sales)) as decimal(10,2)) as 'sales_%_first_day_promo',
+cast(100*(sum(case when transaction_date=last_promo_date then 1 else 0 end)/max(num_of_sales))as decimal(10,2)) as 'sales_%_last_day_promo'
+from T
+--group by promotion_id
+
 --not mine
 
 select
