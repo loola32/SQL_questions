@@ -6,4 +6,59 @@ Examples: // 1 2 5 5 8 // true
 //1 1 1 1 1 1 // true'''
 
 
+Interview Questions
+
+# # sales # products
+# +------------------+---------+ +---------------------+---------+
+# | product_id | INTEGER |>--------| product_id | INTEGER |
+# | store_id | INTEGER | +---<| product_class_id | INTEGER |
+# | customer_id | INTEGER | | | brand_name | VARCHAR |
+# +---<| promotion_id | INTEGER | | | product_name | VARCHAR |
+# | | store_sales | DECIMAL | | | is_low_fat_flg | TINYINT |
+# | | store_cost | DECIMAL | | | is_recyclable_flg |… 
+Show More
+Question 2:
+ What are the top five (ranked in decreasing order)
+ single-channel media types that correspond to the most money
+the grocery chain had spent on its promotional campaigns?  
+4 Answers
+# Question 3:
+# -- % Of sales that had a valid promotion, the VP of marketing
+# -- wants to know what % of transactions occur on either
+# -- the very first day or the very last day of a promotion campaign.  
+8 Answers
+Question 1:
+# Complete a function that returns the number of times a given character occurs in the given string
+
+# For example:
+# - input string = "mississippi"
+# - char = "s"
+#
+# - output : 4
+"""  
+7 Answers
+"""
+# Question 2:
+# Fill in the blanks
+#
+# Given an array containing None values fill in the None values
+# with most recent non None value in the array
+
+#
+# For example:
+# - input array: [1,None,2,3,None,None,5,None]
+#
+# - output array: [1,1,2,3,3,3,5,5]
+#  
+12 Answers
+# Question 3:
+# Complete a function that returns a list containing all the mismatched words (case sensitive) between two given input strings
+
+# For example:
+# - string 1 : "Firstly this is the first string"
+# - string 2 : "Next is the second string"
+#
+# - output : ['Firstly', 'this', 'first', 'Next', 'second'] 
+
+
 
