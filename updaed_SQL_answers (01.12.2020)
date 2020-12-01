@@ -1,0 +1,25 @@
+--3) what %age of sales happened on first and last day of valid promotion
+--by promotion
+
+with valid_promo as (
+ select 
+ S.product_id,
+ P.promotion_id,
+ transaction_date,
+ [start_date] as promo_first_day,
+ [end_date] as promo_last_day,
+ (count(product_id) over(partition by S.promotion_id))*1.0 as total_sold 
+ from sales S inner join promotions P
+ on  S.promotion_id=P.promotion_id
+ and S.transaction_date between start_date and end_date)
+
+select 
+promotion_id,
+cast(sum(case when transaction_date=promo_first_day then 1 else 0 end)/max(total_sold)*100 as decimal (10,2))
+ as pct_sold_first_promo_day,
+cast(sum(case when transaction_date=promo_last_day then 1 else 0 end)/max(total_sold)*100 as decimal (10,2)) as pct_sold_last_promo_day
+from valid_promo
+group by promotion_id
+
+
+
