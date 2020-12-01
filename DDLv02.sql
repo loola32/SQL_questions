@@ -43,6 +43,16 @@ units_sold float,
 transaction_date date
 );
 
+create table promotions
+(
+promotion_id int,
+promotion_name VARCHAR (20),
+media_type VARCHAR (10),
+cost  float,
+start_date DATE,
+end_date DATE,
+);
+
 
 insert into products (product_id, product_class_id , brand_name,product_name,is_low_fat_flg,is_recyclable_flg, price) values (11,30,'Nike','Shoes',1,0,200.5);
 insert into products (product_id, product_class_id , brand_name,product_name,is_low_fat_flg,is_recyclable_flg, price) values (12,40,'Nike','Sweats',1,0,80.5);
@@ -69,15 +79,24 @@ insert into customers (customer_id, first_name , last_name, state, birthdate,edu
 insert into customers (customer_id, first_name , last_name, state, birthdate,education,gender,date_account_opened) values (116,'Chandler','Bing','Vegas','1972-09-22','Numbers','M','2019-02-15');
 
 
-
-insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (11,1,111,156,333.5,200.5,5,'2020-11-18');
+insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (11,1,111,156,333.5,200.5,5,'2020-11-10');
+insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (18,4,114,148,287.5,148.3,3,'2020-11-21');
+insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (11,1,111,156,333.5,200.5,8,'2020-11-23');
+insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (14,3,113,156,146.7,58.5,8,'2020-11-24');
+insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (14,2,113,156,200,80,5,'2020-11-25');
+insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (13,2,113,156,200,80,5,'2020-11-26');
 insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (12,1,112,157,233.5,100.5,10,'2020-11-19');
 insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (13,2,114,159,433.5,123.5,3,'2020-11-17');
 insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (15,3,115,159,245.5,182.5,5,'2020-11-20');
-insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (18,4,114,148,287.5,148.3,3,'2020-11-21');
-insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (14,3,113,156,146.7,58.5,8,'2020-11-22');
-insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (11,1,111,156,333.5,200.5,8,'2020-11-23');
-insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (17,1,111,null,100,100,4,'2020-11-17');
-insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (16,3,116,null,70,70,3,'2020-11-17');
+insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (17,1,111,4444,100,100,4,'2020-11-17');
+insert into sales (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (16,3,112,160,70,70,3,'2020-11-29');
+
+
+
+insert into promotions (promotion_id,promotion_name,media_type,cost,start_date,end_date) values (156, 'pomo_cool','human',20,'2020-11-10','2020-11-24')
+insert into promotions (promotion_id,promotion_name,media_type,cost,start_date,end_date) values (157, 'pomo_meh','web',40,'2020-11-15','2020-11-19')
+insert into promotions (promotion_id,promotion_name,media_type,cost,start_date,end_date) values (159, 'pomo_coco','app',40,'2020-11-17','2020-11-19')
+insert into promotions (promotion_id,promotion_name,media_type,cost,start_date,end_date) values (148, 'pomo_jim','web',40,'2020-11-20','2020-11-22')
+insert into promotions (promotion_id,promotion_name,media_type,cost,start_date,end_date) values (160, 'pomo_jnew','app',40,'2020-11-29','2020-11-29')
 
 
