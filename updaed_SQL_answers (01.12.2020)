@@ -1,3 +1,21 @@
+--2) what %age of products have both low fat and recyccable
+
+
+with total_products as
+(
+select
+is_low_fat_flg,
+is_recyclable_flg,
+(count(product_id) over())*1.0 as total_num_of_products
+from products
+)
+
+select
+cast ((sum(case when is_low_fat_flg=1 and is_recyclable_flg=1 then 1 else 0 end)/max(total_num_of_products))*100 as decimal(10,2)) as pct_both
+from total_products
+
+
+
 --3) what %age of sales happened on first and last day of valid promotion
 --by promotion
 
