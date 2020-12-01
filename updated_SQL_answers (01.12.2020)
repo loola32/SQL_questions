@@ -14,6 +14,15 @@ select
 cast ((sum(case when is_low_fat_flg=1 and is_recyclable_flg=1 then 1 else 0 end)/max(total_num_of_products))*100 as decimal(10,2)) as pct_both
 from total_products
 
+--2) find top 5 sales products having promotions
+
+select top 5 product_id,
+sum(store_sales) as sales_of_the_product
+from sales S inner join promotions P
+on S.promotion_id=P.promotion_id
+group by product_id
+order by sales_of_the_product desc
+
 
 
 --3) what %age of sales happened on first and last day of valid promotion
