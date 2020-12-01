@@ -96,4 +96,28 @@ pr_sales
 from rankings
 where ranking=1
 
+--4a) Which product has the highest sales with promotions
+--without considering each promotion_id
 
+--find the vald sales with promotions
+with valid_promo as (
+select 
+product_id,
+sum(store_cost*units_sold) as pr_sales
+from sales S inner join promotions P
+on S.promotion_id=S.promotion_id
+and transaction_date between start_date and end_date
+group by product_id
+),
+--rank the slaes of the products for each promotion
+rankings as (
+select 
+product_id,
+pr_sales,
+row_number() over (order by pr_sales desc) as ranking
+from valid_promo)
+
+select product_id,
+pr_sales
+from rankings
+where ranking=1
