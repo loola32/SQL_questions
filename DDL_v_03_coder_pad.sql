@@ -1,0 +1,100 @@
+create table products_test
+(product_id int,
+product_class_id int,
+brand_name varchar(20),
+product_name varchar(20),
+is_low_fat_flg tinyint,
+is_recyclable_flg tinyint,
+price float);
+
+
+create table stores_test
+(store_id int,
+type varchar (10),
+name varchar(15),
+state varchar(15),
+first_opened_date datetime,
+last_remodel_date datetime,
+area_sqft int
+);
+
+
+create table customers_test
+(customer_id int,
+first_name varchar(15),
+last_name varchar(15),
+state varchar(15),
+birthdate date,
+education varchar(15),
+gender varchar(10),
+date_account_opened date
+);
+
+
+create table sales_test
+(
+product_id int,
+store_id int,
+customer_id int,
+promotion_id int,
+store_sales float,
+store_cost float,
+units_sold float,
+transaction_date date
+);
+
+create table promotions
+(
+promotion_id int,
+promotion_name VARCHAR (20),
+media_type VARCHAR (10),
+cost  float,
+start_date DATE,
+end_date DATE
+);
+
+
+insert into products_test (product_id, product_class_id , brand_name,product_name,is_low_fat_flg,is_recyclable_flg, price) values (11,30,'Nike','Shoes',1,0,200.5);
+insert into products_test (product_id, product_class_id , brand_name,product_name,is_low_fat_flg,is_recyclable_flg, price) values (12,40,'Nike','Sweats',1,0,80.5);
+insert into products_test (product_id, product_class_id , brand_name,product_name,is_low_fat_flg,is_recyclable_flg, price) values (13,30,'Adiddas','Shoes',0,0,00.5);
+insert into products_test (product_id, product_class_id , brand_name,product_name,is_low_fat_flg,is_recyclable_flg, price) values (14,40,'Adiddas','Sweats',1,1,100.5);
+insert into products_test (product_id, product_class_id , brand_name,product_name,is_low_fat_flg,is_recyclable_flg, price) values (15,50,'UA','Pretty_s',0,1,400.5);
+insert into products_test (product_id, product_class_id , brand_name,product_name,is_low_fat_flg,is_recyclable_flg, price) values (16,60,'UA','Hoodie',1,1,60.5);
+insert into products_test (product_id, product_class_id , brand_name,product_name,is_low_fat_flg,is_recyclable_flg, price) values (17,70,'New_B','Shoes_lady',1,0,120);
+insert into products_test (product_id, product_class_id , brand_name,product_name,is_low_fat_flg,is_recyclable_flg, price) values (18,30,'New_B','Shoes',1,1,31.5);
+
+
+insert into stores_test (store_id, type , name, state, first_opened_date,last_remodel_date,area_sqft) values (1,'Sports','Nike_store','AZ','2020-11-11 13:00:00','2020-11-13 14:00:00',20);
+insert into stores_test (store_id, type , name, state, first_opened_date,last_remodel_date,area_sqft) values (2,'Sports','Adidas_store','AZ','2020-10-11 13:00:00','2020-10-13 14:00:00',20);
+insert into stores_test (store_id, type , name, state, first_opened_date,last_remodel_date,area_sqft) values (3,'Sports','UA_store','NY','2020-08-11 13:00:00','2020-09-13 14:00:00',30);
+insert into stores_test (store_id, type , name, state, first_opened_date,last_remodel_date,area_sqft) values (4,'Sports','New_B_store','PN','2020-11-15 13:00:00','2020-11-16 14:00:00',40);
+
+
+
+insert into customers_test (customer_id, first_name , last_name, state, birthdate,education,gender,date_account_opened) values (111,'Ross','Geller','NY','1970-11-17','Rocks','M','2019-03-11');
+insert into customers_test (customer_id, first_name , last_name, state, birthdate,education,gender,date_account_opened) values (112,'Monica','Geller','NY','1975-02-03','Cook','F','2018-02-10');
+insert into customers_test (customer_id, first_name , last_name, state, birthdate,education,gender,date_account_opened) values (113,'Rachel','Green','Rich_state','1972-01-15','Shop','F','2019-04-11');
+insert into customers_test (customer_id, first_name , last_name, state, birthdate,education,gender,date_account_opened) values (114,'Joey','Tribianni','Quins','1977-09-17','Actor','M','2019-06-16');
+insert into customers_test (customer_id, first_name , last_name, state, birthdate,education,gender,date_account_opened) values (115,'Phoebe','Buffe','NY','1969-05-10','Masage','F','2018-07-20');
+insert into customers_test (customer_id, first_name , last_name, state, birthdate,education,gender,date_account_opened) values (116,'Chandler','Bing','Vegas','1972-09-22','Numbers','M','2019-02-15');
+
+
+insert into sales_test (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (11,1,111,156,333.5,200.5,5,'2020-11-10');
+insert into sales_test (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (18,4,114,148,287.5,148.3,3,'2020-11-21');
+insert into sales_test (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (11,1,111,156,333.5,200.5,8,'2020-11-23');
+insert into sales_test (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (14,3,113,156,146.7,58.5,8,'2020-11-24');
+insert into sales_test (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (14,2,113,156,200,80,5,'2020-11-25');
+insert into sales_test (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (13,2,113,156,200,80,5,'2020-11-26');
+insert into sales_test (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (12,1,112,157,233.5,100.5,10,'2020-11-19');
+insert into sales_test (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (13,2,114,159,433.5,123.5,3,'2020-11-17');
+insert into sales_test (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (15,3,115,159,245.5,182.5,5,'2020-11-20');
+insert into sales_test (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (17,1,111,4444,100,100,4,'2020-11-17');
+insert into sales_test (product_id, store_id ,customer_id,promotion_id, store_sales,store_cost,units_sold,transaction_date) values (16,3,112,160,70,70,3,'2020-11-29');
+
+
+
+insert into promotions (promotion_id,promotion_name,media_type,cost,start_date,end_date) values (156, 'pomo_cool','human',20,'2020-11-10','2020-11-24');
+insert into promotions (promotion_id,promotion_name,media_type,cost,start_date,end_date) values (157, 'pomo_meh','web',40,'2020-11-15','2020-11-19');
+insert into promotions (promotion_id,promotion_name,media_type,cost,start_date,end_date) values (159, 'pomo_coco','app',40,'2020-11-17','2020-11-19');
+insert into promotions (promotion_id,promotion_name,media_type,cost,start_date,end_date) values (148, 'pomo_jim','web',40,'2020-11-20','2020-11-22');
+insert into promotions (promotion_id,promotion_name,media_type,cost,start_date,end_date) values (160, 'pomo_jnew','app',40,'2020-11-29','2020-11-29');
